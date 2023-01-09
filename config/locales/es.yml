@@ -1,0 +1,56 @@
+es:
+  shared:
+    header:
+      add: Agregar Producto
+  activerecord:
+    models:
+      product: Producto
+    attributes:
+      product:
+        title: Título
+        description: Descripción
+        price: Precio
+        photo: Foto
+    errors:
+      models:
+        product:
+          attributes:
+            title:
+              blank: 'no puede estar vacío'
+            description:
+              blank: 'no puede estar vacío'
+            price:
+              blank: 'no puede estar vacío'
+  common:
+    confirm: ¿Estás Seguro?
+    back: 'Volver al listado'
+  products:
+    edit:
+      title: Editar producto
+    new:
+      title: Añadir Producto
+    index:
+      title: Productos
+    create:
+      created: Tu producto se ha creado correctamente
+    update:
+      updated: Tu producto se ha actualizado
+    destroy:
+      destroyed: Tu producto se ha eliminado correctamente
+  categories:
+    category: # partial category
+      edit: 'Editar'
+      delete: 'Eliminar'
+    edit:
+      title: 'Editar Categoría'
+    new:
+      title: 'Agregar Categoría'
+    index:
+      title: 'Categorias'
+      new: 'Agregar Categoría'
+    create:
+      created: La Categoría se ha creado correctamente
+    update:
+      updated: La Categoría se ha actualizado
+    destroy:
+      destroyed: La Categoría se ha eliminado correctamente
