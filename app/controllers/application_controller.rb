@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   around_action :switch_locale
 
+  # para obtener el idioma del navegador del usuario
   def switch_locale(&action)
     I18n.with_locale(locale_from_header, &action)
   end
