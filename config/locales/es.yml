@@ -33,8 +33,12 @@ es:
     index:
       title: Productos
       all: 'Todos'
+      query_text: Qué quieres buscar?
       min_price: Precio Mínimo
       max_price: Precio Máximo
+      expensive: Más caros
+      cheapest: Más barato
+      newest: Añadidos recientemente
     create:
       created: Tu producto se ha creado correctamente
     update:

@@ -54,8 +54,12 @@ en:
     index:
       title: 'Products'
       all: 'All'
+      query_text: What do yo want to search?
       min_price: Min Price
       max_price: Max Price
+      expensive: Expensive First
+      cheapest: Cheaper first
+      newest: Recently added
     create:
       created: 'Your product was created successfully'
     update:

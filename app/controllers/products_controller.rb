@@ -1,13 +1,11 @@
 # This is product controller
 class ProductsController < ApplicationController
-  def index 
+
+  def index
     # (with_attached_photo) para eliminar el problema de n + 1 query
     # (with_attached_photo) --> evita hacer consultas adicionales
     @categories = Category.order(name: :asc).load_async
-    @products = Product.order(created_at: :desc).with_attached_photo.load_async
-    @products = @products.where(category_id: params[:category_id]) if params[:category_id]
-    @products = @products.where('price >= ?', params[:min_price]) if params[:min_price].present?
-    @products = @products.where('price <= ?', params[:max_price]) if params[:max_price].present?
+    @pagy, @products = pagy_countless(FindProducts.new.call(params).load_async, items: 5)
   end
 
   def show
