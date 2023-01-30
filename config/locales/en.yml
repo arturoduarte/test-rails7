@@ -31,6 +31,8 @@
 
 en:
   hello: "Hello world"
+  app_name: 'SellIt'
+  meta_title: 'Buy and sell second hand products!'
   shared:
     header:
       add: Add Product

@@ -1,4 +1,6 @@
 es:
+  app_name: 'Vendelo'
+  meta_title: 'Compra y Venta de productos de segunda mano!'
   shared:
     header:
       add: Agregar Producto

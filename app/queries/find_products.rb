@@ -17,13 +17,13 @@ class FindProducts
   private
 
   def initial_scope
-    Product.with_attached_photo
+    ::Product.with_attached_photo
   end
 
   def filter_by_category_id(scoped, category_id)
     return scoped unless category_id.present?
 
-    scoped.where(category_id: category_id)
+    scoped.where(category_id:)
   end
 
   def filter_by_min_price(scoped, min_price)
