@@ -10,4 +10,8 @@ Rails.application.routes.draw do
 
   resources :products, path: '/'
   # root 'products#index'
+
+  namespace :authentication, path: '', as: '' do
+    resources :users, only: %i[new create]
+  end
 end

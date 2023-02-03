@@ -20,10 +20,10 @@ class FindProducts
     ::Product.with_attached_photo
   end
 
-  def filter_by_category_id(scoped, category_id)
-    return scoped unless category_id.present?
+  def filter_by_category_id(scoped, category_filter_id)
+    return scoped unless category_filter_id.present?
 
-    scoped.where(category_id:)
+    scoped.where(category_id: category_filter_id)
   end
 
   def filter_by_min_price(scoped, min_price)
@@ -45,7 +45,7 @@ class FindProducts
   end
 
   def sort(scoped, order_by)
-    order_by_query = Product::ORDER_BY.fetch(order_by&.to_sym, Product::ORDER_BY[:newest])
+    order_by_query = ::Product::ORDER_BY.fetch(order_by&.to_sym, ::Product::ORDER_BY[:newest])
     scoped.order(order_by_query)
   end
 end

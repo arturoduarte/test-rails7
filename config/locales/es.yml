@@ -1,66 +1,106 @@
 es:
   app_name: 'Vendelo'
-  meta_title: 'Compra y Venta de productos de segunda mano!'
-  shared:
-    header:
-      add: Agregar Producto
-      categories: Categorías
+  meta_title: 'Compra y vende productos de segunda mano'
   activerecord:
     models:
       product: Producto
+      user: Usuario
+      category: Categoría
     attributes:
       product:
-        title: Título
-        description: Descripción
-        price: Precio
-        photo: Foto
+        title: 'Título'
+        description: 'Descripción'
+        price: 'Precio'
+        photo: 'Foto'
+      user:
+        email: 'Correo electrónico'
+        username: 'Usuario'
+        password: 'Contraseña'
+      category:
+        name: 'Nombre'
     errors:
       models:
-        product:
+        user:
           attributes:
-            title:
-              blank: 'no puede estar vacío'
-            description:
-              blank: 'no puede estar vacío'
-            price:
-              blank: 'no puede estar vacío'
+            username:
+              invalid: Usuario Inválido
+              too_long: Nombre de usuario muy largo
+            email:
+              invalid: inválido
   common:
-    confirm: ¿Estás Seguro?
-    back: 'Volver al listado'
+    confirm: '¿Estás seguro?'
+    back: 'Volver'
+    not_logged_in: 'Tienes que hacer login o crearte una cuenta'
+    not_authorized: 'No tienes permisos para esta acción'
+    not_found: 'No se ha encontrado'
+  shared:
+    header:
+      add: 'Añadir producto'
+      login: 'Acceso'
+      register: 'Registro'
+      logout: 'Salir'
+      favorites: 'Mis favoritos'
+  authentication:
+    users:
+      create:
+        created: 'Tu cuenta se ha creado!'
+    sessions:
+      create:
+        created: 'Bienvenido!'
+        failed: 'Login inválido!'
+      destroy:
+        destroyed: 'Tu sesión ha terminado! Hasta la próxima'
   products:
     edit:
-      title: Editar producto
+      title: 'Editar producto'
     new:
-      title: Añadir Producto
+      title: 'Añadir producto'
+    form:
+      title_placeholder: '¿Qué quieres vender?'
+      description_placeholder: '¿Puedes describir el producto?'
+      price_placeholder: '¿Cuánto cuesta?'
+      category_placeholder: '¿En qué categoría encaja mejor?'
+      submit: 'Véndelo!'
     index:
-      title: Productos
+      title: 'Productos:'
       all: 'Todos'
-      query_text: Qué quieres buscar?
-      min_price: Precio Mínimo
-      max_price: Precio Máximo
-      expensive: Más caros
-      cheapest: Más barato
-      newest: Añadidos recientemente
+      min_price: 'Precio mínimo'
+      max_price: 'Precio máximo'
+      query_text: '¿Qué quieres buscar?'
+      expensive: 'Más caros'
+      cheapest: 'Más barato'
+      newest: 'Añadidos recientemente'
+    show:
+      edit: 'Editar producto'
+      delete: 'Borrar producto'
+      view_more_products: 'Ver más productos de %{username}'
     create:
-      created: Tu producto se ha creado correctamente
+      created: 'Tu producto se ha creado correctamente'
     update:
-      updated: Tu producto se ha actualizado
+      updated: 'Tu producto se ha actualizado correctamente'
     destroy:
-      destroyed: Tu producto se ha eliminado correctamente
+      destroyed: 'Tu producto se ha eliminado correctamente'
   categories:
-    category: # partial category
+    category:
       edit: 'Editar'
-      delete: 'Eliminar'
-    edit:
-      title: 'Editar Categoría'
-    new:
-      title: 'Agregar Categoría'
+      delete: 'Borrar'
     index:
-      title: 'Categorias'
-      new: 'Agregar Categoría'
+      title: 'Categorías'
+      new: 'Añadir categoría'
+    edit:
+      title: 'Editar categoría'
     create:
-      created: La Categoría se ha creado correctamente
+      created: 'Tu categoría se ha creado correctamente'
     update:
-      updated: La Categoría se ha actualizado
+      updated: 'Tu categoría se ha actualizado correctamente'
     destroy:
-      destroyed: La Categoría se ha eliminado correctamente
+      destroyed: 'Tu categoría se ha eliminado correctamente'
+    new:
+      title: 'Añadir categoría'
+  favorites:
+    index:
+      title: 'Mis favoritos'
+  user_mailer:
+    welcome:
+      subject: 'Bienvenido a Vendelo'
+      welcome_message: 'Hey %{username}, bienvenid@ a Vendelo. Esperemos que vendas un montón!'
