@@ -1,5 +1,6 @@
 # This is product controller
 class ProductsController < ApplicationController
+  skip_before_action :protect_pages, only: %i[index show]
 
   def index
     # (with_attached_photo) para eliminar el problema de n + 1 query
