@@ -15,3 +15,6 @@ Style/DocumentationMethod:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+Lint/ConstantResolution:
+  Enabled: false

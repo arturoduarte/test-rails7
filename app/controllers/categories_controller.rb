@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  before_action :authorize!
   # GET /categories or /categories.json
   def index
     @categories = Category.order(name: :asc)
@@ -19,9 +20,9 @@ class CategoriesController < ApplicationController
     @category = Category.new(category_params)
 
     if @category.save
-      redirect_to categories_url, notice: t('.created')
+      redirect_to(categories_url, notice: t('.created'))
     else
-      render :new, status: :unprocessable_entity
+      render(:new, status: :unprocessable_entity)
     end
   end
 

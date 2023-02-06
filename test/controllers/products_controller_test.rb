@@ -102,11 +102,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'allows to update a product' do
-    patch product_path(products(:ps4)), params: {
-      product: {
-        price: 145
-      }
-    }
+    patch product_path(products(:ps4)), params: { product: { price: 145 } }
 
     assert_redirected_to products_path
     assert_equal flash[:notice], 'Tu producto se ha actualizado correctamente'
@@ -127,5 +123,3 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     assert_equal flash[:notice], 'Tu producto se ha eliminado correctamente'
   end
 end
-
-
