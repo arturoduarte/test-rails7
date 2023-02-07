@@ -14,4 +14,8 @@ class Product < ApplicationRecord
   validates :title, :description, :price, presence: true
   belongs_to :category
   belongs_to :user, default: -> { ::Current.user }
+
+  def owner?
+    user == ::Current.user
+  end
 end
