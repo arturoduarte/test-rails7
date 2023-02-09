@@ -1,15 +1,31 @@
 class FavoritesController < ApplicationController
   def index
   end
-  
+
   def create
     product.favorite!
-    redirect_to(product_path(product))
+    respond_to do |format|
+      format.html { redirect_to(product_path(product)) }
+      format.turbo_stream do
+        # el primer favorite se refiere al id del html a reemplazar
+        render(
+          turbo_stream: turbo_stream.replace('favorite', partial: 'products/favorite', locals: { product: product })
+        )
+      end
+    end
   end
 
   def destroy
     product.unfavorite!
-    redirect_to(product_path(product), status: :see_other)
+    respond_to do |format|
+      format.html { redirect_to(product_path(product), status: :see_other) }
+      format.turbo_stream do
+        # el primer favorite se refiere al id del html a reemplazar
+        render(
+          turbo_stream: turbo_stream.replace('favorite', partial: 'products/favorite', locals: { product: product })
+        )
+      end
+    end
   end
 
   private
