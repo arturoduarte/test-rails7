@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
     # (with_attached_photo) para eliminar el problema de n + 1 query
     # (with_attached_photo) --> evita hacer consultas adicionales
     @categories = ::Category.order(name: :asc).load_async
-    @pagy, @products = pagy_countless(FindProducts.new.call(product_params_index).load_async, items: 5)
+    @pagy, @products = pagy_countless(FindProducts.new.call(product_params_index).load_async, items: 12)
   end
 
   def show
