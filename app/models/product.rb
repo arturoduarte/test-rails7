@@ -15,7 +15,6 @@ class Product < ApplicationRecord
   has_one_attached :photo
   validates :title, :description, :price, presence: true
 
-
   belongs_to :category
   belongs_to :user, default: -> { ::Current.user }
 
@@ -23,4 +22,7 @@ class Product < ApplicationRecord
     user == ::Current.user
   end
 
+  def broadcast
+    broadcast_replace_to(self, partial: 'products/product_details', locals: { product: self })
+  end
 end
