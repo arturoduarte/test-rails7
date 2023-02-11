@@ -22,5 +22,8 @@ Style/FrozenStringLiteralComment:
 Lint/ConstantResolution:
   Enabled: false
 
+Metrics/AbcSize:
+  Enabled: false
+
 
 
