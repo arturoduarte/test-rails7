@@ -8,6 +8,7 @@ class FetchCountryService
   end
 
   def perform
+    # sleep(60)
     uri = URI("http://ip-api.com/json/#{ip}")
     response = Net::HTTP.get(uri)
     parsed_response = JSON.parse(response)
